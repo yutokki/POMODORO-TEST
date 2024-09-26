@@ -240,4 +240,38 @@ function handleEndOfCycle() {
     }
 }
 
+// Variables pour la to-do list
+const todoForm = document.getElementById('todo-form');
+const todoInput = document.getElementById('todo-input');
+const todoList = document.getElementById('todo-list');
 
+// Événement pour ajouter une nouvelle tâche
+todoForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche la soumission par défaut du formulaire
+
+    const newTaskText = todoInput.value.trim(); // Récupérer la valeur de l'input
+    if (newTaskText === '') return; // Ne pas ajouter de tâches vides
+
+    // Créer un nouvel élément de tâche
+    const newTask = document.createElement('li');
+    newTask.innerHTML = `
+        <span>${newTaskText}</span>
+        <button class="todo-delete">X</button>
+    `;
+
+    // Ajouter la tâche à la liste
+    todoList.appendChild(newTask);
+
+    // Réinitialiser le champ de saisie
+    todoInput.value = '';
+
+    // Ajouter un événement pour marquer la tâche comme complète
+    newTask.addEventListener('click', function() {
+        newTask.classList.toggle('todo-complete');
+    });
+
+    // Ajouter un événement pour supprimer la tâche
+    newTask.querySelector('.todo-delete').addEventListener('click', function() {
+        newTask.remove();
+    });
+});
