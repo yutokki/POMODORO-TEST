@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pomodoro Timer</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- Importation de Fredoka avec les poids 400 et 500 -->
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
+      </head>
+<body>
+    <div class="container">
+        <div id="timer-type">Temps de travail</div>
+        <div id="time">25:00</div>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+            <img id="rabbit" src="rabbit.gif" alt="Lapin">
+        </div>
+
+        <div class="controls">
+            <button id="start">Démarrer</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Réinitialiser</button>
+        </div>
+
+        <div class="settings">
+            <label>Durée de travail (MM:SS):
+                <input type="text" id="work-duration" value="25:00">
+            </label>
+            <label>Durée de repos (MM:SS):
+                <input type="text" id="break-duration" value="05:00">
+            </label>
+            <label>Nombre de cycles:
+                <input type="number" id="cycles" value="4">
+            </label>
+        </div>
+
+        <button id="obs-button">Mode OBS</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

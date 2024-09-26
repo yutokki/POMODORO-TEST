@@ -1,0 +1,221 @@
+/* Styles généraux */
+/* Appliquer la police Fredoka pour tout le site */
+body {
+    background: linear-gradient(135deg, #cbb0e3, #a8d0e6, #b8a9c9);
+    font-family: 'Fredoka', sans-serif; /* Utiliser Fredoka partout */
+    font-weight: 700; /* Poids de 700 par défaut */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #4a4a4a;
+}
+
+.container {
+    background-color: rgba(58, 63, 88, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    width: 450px;
+    max-width: 100%;
+}
+
+/* Titre du timer */
+#timer-type {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #cbb0e3; /* Assortir les couleurs */
+}
+
+/* Affichage du temps */
+#time {
+    font-size: 90px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #cbb0e3; /* Bleu doux pastel */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour le texte */
+    /* Halo lumineux autour du texte */
+    box-shadow: 0 0 25px rgba(200, 160, 230, 0.7); /* Halo doux et coloré */
+    padding: 10px; /* Ajoute du padding pour espacer légèrement le texte du halo */
+    border-radius: 15px; /* Bordures arrondies */
+}
+
+/* Progress bar container */
+#progress-bar-container {
+    width: 100%;
+    height: 20px;
+    position: relative;
+    background-color: transparent;
+    margin-top: 20px;
+    overflow: visible;
+    border-radius: 10px;
+}
+
+/* Barre de progression en mode travail */
+#progress-bar {
+    background: linear-gradient(90deg, #a8d0e6, #b8a9c9); /* Dégradé doux pastel bleu vers lavande */
+    border-radius: 10px;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: width 0.5s ease;
+}
+
+/* Barre de progression en mode repos - aspect route */
+.obs-mode #progress-bar.rest-mode {
+    background-color: #333333;
+    position: relative;
+    border-radius: 10px;
+}
+
+.obs-mode #progress-bar.rest-mode::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 15px,
+        #ffffff 15px,
+        #ffffff 30px
+    );
+    transform: translateY(-50%);
+}
+
+/* Lapin par défaut */
+#rabbit {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    transition: left 0.5s ease;
+    height: 50px;
+    z-index: 2;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Appliquer l'animation bounce au lapin */
+.bounce {
+    animation: bounce 1s ease;
+}
+
+/* Lapin en mode OBS */
+.obs-mode #rabbit {
+    height: 80px;
+    top: -45px;
+}
+
+/* Boutons généraux */
+.controls button, #obs-button {
+    width: 150px; /* Augmenter la taille du bouton */
+    padding: 15px;
+    background-color: #b8a9c9;
+    border: none;
+    border-radius: 50px; /* Arrondir davantage les coins */
+    color: white;
+    font-size: 20px; /* Police plus grande */
+    font-weight: bold; /* Rendre la police plus épaisse comme l'exemple */
+    font-family: 'Fredoka', sans-serif; /* Utiliser une police moderne et large */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Douce ombre autour du bouton */
+    margin: 15px;
+    text-align: center; /* Centrer le texte */
+}
+
+/* Hover sur les boutons */
+.controls button:hover, #obs-button:hover {
+    background-color: #d0b3c3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Bouton OBS */
+#obs-button {
+    width: 160px;
+    padding: 15px;
+    font-size: 18px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Paramètres du timer */
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer les éléments horizontalement */
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%; /* S'assurer que les éléments sont bien répartis */
+}
+
+/* Style des labels */
+/* Rendre les labels en Fredoka Bold */
+.settings label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    color: #cbb0e3;
+    font-weight: 500; /* Rendre les labels en gras */
+    font-family: 'Fredoka', sans-serif; /* Utiliser Fredoka */
+}
+
+/* Rendre les inputs en Fredoka Bold */
+.settings input {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    margin: 5px 0;
+    width: 70%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #a8d0e6;
+    font-size: 16px;
+    font-weight: 500; /* Rendre les inputs en gras */
+    text-align: center;
+    color: #4a4a4a;
+    font-family: 'Fredoka', sans-serif; /* Utiliser Fredoka */
+}
+
+
+/* Mode OBS : cacher les contrôles et la configuration */
+body.obs-mode .controls,
+body.obs-mode .settings,
+body.obs-mode #obs-button {
+    display: none;
+}
+
+body.obs-mode #progress-bar-container {
+    height: 80px;
+}
+
+body.obs-mode #time {
+    font-size: 100px;
+    margin: 0;
+}
+
+body.obs-mode #timer-type {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+
